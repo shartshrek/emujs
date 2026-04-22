@@ -6,110 +6,125 @@
         <link rel="icon" href="docs/favicon.ico" sizes="16x16 32x32 48x48 64x64" type="image/vnd.microsoft.icon">
         <meta name="viewport" content="width = device-width, initial-scale = 1">
         <style>
-html, body {
-    height: 100%;
-    margin: 0;
-    overflow: hidden;
-    font-family: monospace;
-    background: radial-gradient(circle at top, #121317, #07080a);
-    color: #d6d6d6;
-}
+             body, html {
+                height: 100%;
+                background-color: black;
+                color: white;
+            }
 
-/* layout safety (DO NOT affect emulator canvas) */
-body, #box, #top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
+            body {
+                margin: 0;
+                overflow: hidden;
+            }
 
-/* title */
-#top h1 {
-    letter-spacing: 3px;
-    color: #e0e0e0;
-    text-shadow: 0 0 12px rgba(255,255,255,0.15);
-}
+            body, #box, #top {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
 
-/* upload panel */
-#box {
-    height: 20em;
-    width: 30em;
-    max-width: 80%;
-    max-height: 80%;
-    background: linear-gradient(145deg, #2a2d33, #15171a);
-    border: 1px solid #3b4048;
-    border-radius: 12px;
-    box-shadow:
-        inset 0 0 12px rgba(255,255,255,0.05),
-        0 15px 40px rgba(0,0,0,0.75);
-    text-align: center;
-    font-size: 18px;
-    color: #aaa;
-    transition: 0.25s ease;
-}
+            #box {
+                color: #aaa;
+                height: 20em;
+                width: 30em;
+                max-width: 80%;
+                max-height: 80%;
+                background-color: #333;
+                border-radius: 0.4em;
+                border: 2px solid #555;
+                position: relative;
+                flex-direction: column;
+                transition-duration: 0.2s;
+                overflow: hidden;
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 20px;
+                margin: 5px;
+                text-align: center;
+                padding: 10px;
+            }
 
-#box:hover, #box[drag] {
-    border-color: #00d0ff;
-    box-shadow:
-        inset 0 0 14px rgba(0,208,255,0.25),
-        0 0 30px rgba(0,208,255,0.25);
-    color: #fff;
-}
+            #box:hover, #box[drag] {
+                border-color: #1AAFFF;
+                color: #ddd
+            }
 
-/* advanced panel */
-#advanced {
-    width: 30em;
-    max-width: 80%;
-    background: linear-gradient(145deg, #2a2d33, #15171a);
-    border: 1px solid #3b4048;
-    border-radius: 12px;
-    margin: 10px;
-    padding: 12px;
-}
+            #advanced {
+                color: #aaa;
+                text-align: left;
+                width: 30em;
+                max-width: 80%;
+                background-color: #333;
+                border-radius: 0.4em;
+                border: 2px solid #555;
+                position: relative;
+                flex-direction: column;
+                transition-duration: 0.2s;
+                overflow: hidden;
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 20px;
+                margin: 5px;
+                padding: 10px;
+            }
 
-/* file input overlay (IMPORTANT: do not change structure) */
-#input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
+            #advancedOptionsBox {
+                margin-top: 10px;
+                font-size: 14px;
+                margin-left: 20px;
+            }
 
-/* emulator container MUST remain untouched in behavior */
-#display {
-    position: absolute;
-    inset: 0;
-}
+            .advancedOptionsBoxRow {
+                margin-top: 10px;
+            }
 
-/* emulator canvas */
-#game {
-    width: 100%;
-    height: 100%;
-}
+            #input {
+                cursor: pointer;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+            }
 
-/* buttons/select (visual only) */
-button, select {
-    background: linear-gradient(145deg, #3a3f46, #1a1c20);
-    border: 1px solid #444;
-    color: #ddd;
-    padding: 0.5em;
-    margin: 0.3em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
+            #display {
+                width: 100%;
+                height: 100%
+            }
 
-button:hover, select:hover {
-    border-color: #00d0ff;
-    box-shadow: 0 0 14px rgba(0,208,255,0.4);
-}
+            select, button {
+                padding: 0.6em 0.4em;
+                margin: 0.5em;
+                width: 15em;
+                max-width: 100%;
+                font-family: monospace;
+                font-weight: bold;
+                font-size: 16px;
+                background-color: #444;
+                color: #aaa;
+                border-radius: 0.4em;
+                border: 1px solid #555;
+                cursor: pointer;
+                transition-duration: 0.2s
+            }
 
-/* optional glow effect for logo */
-.logo {
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.25));
-}
-</style>
+            select:hover, button:hover {
+                background-color: #666;
+                color: #ddd
+            }
+
+            .logo {
+                width: 130px;
+                height: 130px;
+                filter: drop-shadow(0 0 8px white);
+            }
+
+            #top {
+                margin: 5px;
+            }
+        </style>
     </head>
 
     <body>
